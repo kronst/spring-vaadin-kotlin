@@ -1,8 +1,9 @@
 package com.kronst.demo.ui.view
 
 import com.github.mvysny.karibudsl.v10.KComposite
-import com.kronst.demo.ui.ViewUtils
+import com.kronst.demo.ui.UIExceptionHandler
 import com.vaadin.flow.component.DetachEvent
+import com.vaadin.flow.component.UI
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
 import org.slf4j.Logger
@@ -16,12 +17,11 @@ abstract class ScopeView : KComposite(), CoroutineScope {
      * This allows us to cancel all coroutines when the view is detached.
      */
     private val uiScope = SupervisorJob()
-    private val uiContext = ViewUtils.uiContext()
 
     protected val logger: Logger = LoggerFactory.getLogger(javaClass)
 
     override val coroutineContext: CoroutineContext
-        get() = uiContext + uiScope
+        get() = uiScope + UIExceptionHandler(ui = UI.getCurrent())
 
     /**
      * Cancels all coroutines started in this view when the view is detached.
