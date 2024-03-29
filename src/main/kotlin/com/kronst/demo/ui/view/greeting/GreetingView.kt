@@ -8,7 +8,7 @@ import com.github.mvysny.karibudsl.v10.textField
 import com.github.mvysny.karibudsl.v10.verticalLayout
 import com.kronst.demo.backend.service.GreetingService
 import com.kronst.demo.ui.MainLayout
-import com.kronst.demo.ui.view.ScopeView
+import com.kronst.demo.ui.ScopeComponent
 import com.vaadin.flow.component.Key
 import com.vaadin.flow.component.UI
 import com.vaadin.flow.component.button.Button
@@ -26,7 +26,7 @@ import kotlinx.coroutines.launch
 @Route(value = "greet", layout = MainLayout::class)
 class GreetingView(
     private val greetingService: GreetingService
-) : ScopeView() {
+) : ScopeComponent() {
 
     private lateinit var nameField: TextField
     private lateinit var greetButton: Button

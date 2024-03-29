@@ -1,7 +1,6 @@
-package com.kronst.demo.ui.view
+package com.kronst.demo.ui
 
 import com.github.mvysny.karibudsl.v10.KComposite
-import com.kronst.demo.ui.UIExceptionHandler
 import com.vaadin.flow.component.DetachEvent
 import com.vaadin.flow.component.UI
 import kotlinx.coroutines.CoroutineScope
@@ -10,7 +9,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import kotlin.coroutines.CoroutineContext
 
-abstract class ScopeView : KComposite(), CoroutineScope {
+abstract class ScopeComponent : KComposite(), CoroutineScope {
 
     /**
      * The [SupervisorJob] to which all coroutines started in this view are attached.
